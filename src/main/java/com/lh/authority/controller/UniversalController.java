@@ -32,66 +32,66 @@ public class UniversalController {
         super();
     }
 
-//    @Value("${eureka.instance.metadata-map.version}")
-//    private String version;
+    @Value("${eureka.instance.metadata-map.version}")
+    private String version;
 
-//    @Value("${server.port}")
-//    private String port;
-//
-//    @Value("${spring.application.name}")
-//    private String springApplicationName;
+    @Value("${server.port}")
+    private String port;
 
-//    @Value("${liangHaoSign}")
-//    private String liangHaoSign;
-//
-//    @ApiOperation(value = "测试Feign熔断时间", notes = "hi")
-//    @ApiImplicitParams({
-//            @ApiImplicitParam(name = "timeOut", value = " 超时时间", required = true, dataType = "long")
-//    })
-//    @PostMapping("/testTimeOut")
-//    public String testTimeOut(@RequestParam(value = "timeOut") long timeOut) throws InterruptedException {
-//        Logger logger = Logger.getLogger("Feign:");
-//        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-//        logger.info("Begin Feign :(" + timeOut + ")" + df.format(new Date()));
-//        Thread.sleep(timeOut);
-//        logger.info("End Feign :(" + timeOut + ")" + df.format(new Date()));
-//        return String.format("TimeOut : %d", timeOut);
-//    }
-//
-//    /**
-//     * @return 返回当前版本号
-//     */
-//    @ApiOperation(value = "得到当前版本号", notes = "返回：当前版本号")
-//    @PostMapping("/myVersion")
-//    public String getVersion() {
-//        return String.format("My port is : %s; My version is : %s", port, version);
-//    }
-//
-//    /**
-//     * @return 返回当前端口号
-//     */
-//    @ApiOperation(value = "得到当前端口号", notes = "返回：当前端口号")
-//    @PostMapping("/myPort")
-//    public String myPort() {
-//        return String.format("I am is port:%s", port);
-//    }
-//
-//    /**
-//     * @return 手动下线
-//     */
-//    @ApiOperation(value = "手动下线方法", notes = "返回：当前微服务名和端口号")
-//    @GetMapping("/downLine")
-//    public String downLine() {
-//        getInstance().shutdownComponent();
-//        return String.format("ApplicationName\"%s\"(Port:%s) is downLine.", this.springApplicationName, this.port);
-//    }
-//
-//    /**
-//     * @return 返回当前端口号
-//     */
-//    @ApiOperation(value = "得到参数标识", notes = "返回：参数标识")
-//    @PostMapping("/GetParamSign")
-//    public String GetParamSign() {
-//        return String.format("liangHaoSign:\"%s\"", liangHaoSign);
-//    }
+    @Value("${spring.application.name}")
+    private String springApplicationName;
+
+    @Value("${liangHaoSign}")
+    private String liangHaoSign;
+
+    @ApiOperation(value = "测试Feign熔断时间", notes = "hi")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "timeOut", value = " 超时时间", required = true, dataType = "long")
+    })
+    @PostMapping("/testTimeOut")
+    public String testTimeOut(@RequestParam(value = "timeOut") long timeOut) throws InterruptedException {
+        Logger logger = Logger.getLogger("Feign:");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        logger.info("Begin Feign :(" + timeOut + ")" + df.format(new Date()));
+        Thread.sleep(timeOut);
+        logger.info("End Feign :(" + timeOut + ")" + df.format(new Date()));
+        return String.format("TimeOut : %d", timeOut);
+    }
+
+    /**
+     * @return 返回当前版本号
+     */
+    @ApiOperation(value = "得到当前版本号", notes = "返回：当前版本号")
+    @PostMapping("/myVersion")
+    public String getVersion() {
+        return String.format("My port is : %s; My version is : %s", port, version);
+    }
+
+    /**
+     * @return 返回当前端口号
+     */
+    @ApiOperation(value = "得到当前端口号", notes = "返回：当前端口号")
+    @PostMapping("/myPort")
+    public String myPort() {
+        return String.format("I am is port:%s", port);
+    }
+
+    /**
+     * @return 手动下线
+     */
+    @ApiOperation(value = "手动下线方法", notes = "返回：当前微服务名和端口号")
+    @GetMapping("/downLine")
+    public String downLine() {
+        getInstance().shutdownComponent();
+        return String.format("ApplicationName\"%s\"(Port:%s) is downLine.", this.springApplicationName, this.port);
+    }
+
+    /**
+     * @return 返回当前端口号
+     */
+    @ApiOperation(value = "得到参数标识", notes = "返回：参数标识")
+    @PostMapping("/GetParamSign")
+    public String GetParamSign() {
+        return String.format("liangHaoSign:\"%s\"", liangHaoSign);
+    }
 }
